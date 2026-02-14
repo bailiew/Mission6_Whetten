@@ -1,0 +1,406 @@
+/* ============================================
+   Global Styles & Typography
+   ============================================ */
+
+   :root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-light: #f8f9fa;
+    --border-color: #dee2e6;
+    --success-color: #28a745;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-hover: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+  margin-bottom: 60px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+/* ============================================
+   Navigation & Header
+   ============================================ */
+
+.navbar {
+    background-color: #fff !important;
+    box-shadow: var(--shadow);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--primary-color) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: var(--accent-color) !important;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+    margin: 0 0.25rem;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+    background-color: var(--bg-light);
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--success-color);
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* ============================================
+   Container & Layout
+   ============================================ */
+
+.container {
+    max-width: 1200px;
+    padding: 2rem 1rem;
+}
+
+main {
+    min-height: calc(100vh - 200px);
+}
+
+/* ============================================
+   Forms
+   ============================================ */
+
+form {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 2rem 0;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    margin-bottom: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+button[type="submit"],
+.btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+button[type="submit"] {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+button[type="submit"]:hover {
+    background-color: #c0392b;
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    color: white;
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, 
+.form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(231, 76, 60, 0.25);
+}
+
+/* ============================================
+   Links
+   ============================================ */
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+/* ============================================
+   Images
+   ============================================ */
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin: 1.5rem 0;
+    display: block;
+}
+
+img[alt*="Headshot"],
+img[alt*="Baconsale"] {
+    margin: 2rem auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img[alt*="Headshot"]:hover,
+img[alt*="Baconsale"]:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ============================================
+   Confirmation Page
+   ============================================ */
+
+.confirmation-message {
+    background-color: #d4edda;
+    border: 2px solid var(--success-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+/* ============================================
+   Home Page Intro Text
+   ============================================ */
+
+   .intro-text {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    letter-spacing: 0.3px;
+}
+
+.intro-text p {
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* ============================================
+   Get To Know Joel Page Image
+   ============================================ */
+
+.get-to-know-image {
+    max-height: 350px;
+    width: auto;
+    margin: 2rem auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .get-to-know-image {
+        max-height: 250px;
+    }
+    
+    .intro-text {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+    }
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem 0;
+}
+
+.footer .container {
+    padding: 0 1rem;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+.spacing {
+    margin: 2rem 0;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    form {
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* ============================================
+   Form Floating Placeholder Fix
+   ============================================ */
+
+.form-floating > .form-control-plaintext::placeholder, 
+.form-floating > .form-control::placeholder {
+    color: var(--text-light);
+    text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, 
+.form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
