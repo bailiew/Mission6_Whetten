@@ -1,11 +1,14 @@
 @{
+    // Set the page title that appears in the browser tab
     ViewData["Title"] = "Confirmation";
 }
 
 @model Mission6_Whetten.Models.Record
 
+<!-- Confirmation message displayed after successful movie submission -->
 <h2>Movie Record Recieved. Thank you.</h2>
 
 <br /><br />
 
+<!-- Button to return to the movie database form to add another record -->
 <a asp-action="MovieDatabase" asp-controller="Home" class="btn btn-secondary">Add Another Movie Record</a>

@@ -1,24 +1,35 @@
 @model Mission6_Whetten.Models.Record
 @{
+    // Set the page title that appears in the browser tab
     ViewData["Title"] = "Movie Database";
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>Add a movie to Joel's extensive movie database.</p>
 
+<!-- Form to submit a new movie record to the database -->
 <form method="post" asp-action="MovieDatabase" asp-controller="Home">
+    <!-- Required field: Movie category -->
     <label asp-for="Category">Category:</label>
     <input asp-for="Category" required/>
     <br /><br/>
+    
+    <!-- Required field: Movie title -->
     <label asp-for="Title">Title:</label>
     <input asp-for="Title" required/>
     <br /><br/>
+    
+    <!-- Required field: Release year -->
     <label asp-for="Year">Year:</label>
     <input asp-for="Year" required/>
     <br /><br/>
+    
+    <!-- Required field: Director name -->
     <label asp-for="Director">Director:</label>
     <input asp-for="Director" required/>
     <br /><br/>
+    
+    <!-- Required field: Rating dropdown with MPAA ratings -->
     <label asp-for="Rating">Rating:</label>
     <select asp-for="Rating" required>
         <option value="G">G</option>
@@ -27,17 +38,25 @@
         <option value="R">R</option>
     </select>
     <br /><br/>
+    
+    <!-- Optional field: Whether the movie has been edited -->
     <label asp-for="Edited">Edited:</label>
     <select asp-for="Edited">
         <option value="true">Yes</option>
         <option value="false">No</option>
     </select>
     <br /><br/>
+    
+    <!-- Optional field: Person the movie was lent to -->
     <label asp-for="LentTo">Lent To:</label>
     <input asp-for="LentTo" />
     <br /><br/>
+    
+    <!-- Optional field: Notes (limited to 25 characters) -->
     <label asp-for="Notes">Notes:</label>
     <textarea asp-for="Notes" maxlength="25" rows="4"></textarea>
     <br /><br/>
+    
+    <!-- Submit button to save the movie record -->
     <button type="submit">Submit Movie Record</button>
 </form>
