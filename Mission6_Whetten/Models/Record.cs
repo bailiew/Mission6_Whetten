@@ -16,7 +16,6 @@ public class Record
     public string Director { get; set; }
     [Required]
     public string Rating { get; set; }
-    [Required]
     public bool? Edited { get; set; }
     public string? LentTo { get; set; }
     [MaxLength(25)]

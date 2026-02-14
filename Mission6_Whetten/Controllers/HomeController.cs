@@ -32,10 +32,13 @@ public class HomeController : Controller
     [HttpPost] // information that comes out of the page
     public IActionResult MovieDatabase(Record response)
     {
-        _context.Records.Add(response); // add record to the database
-        _context.SaveChanges();
-        
-        return View("Confirmation", response); // pass response so that information can be used by Confirmation page
+        if (ModelState.IsValid)
+        {
+            _context.Records.Add(response); // add record to the database
+            _context.SaveChanges();
+            return View("Confirmation", response); // pass response so that information can be used by Confirmation page
+        }
+        return View(response); // Return view with errors if invalid
     }
 
 }
