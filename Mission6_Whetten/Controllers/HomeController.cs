@@ -4,9 +4,7 @@ using Mission6_Whetten.Models;
 
 namespace Mission6_Whetten.Controllers;
 
-/// <summary>
-/// Controller for handling all home page actions including the movie database form.
-/// </summary>
+// Controller for handling all home page actions including the movie database form.
 public class HomeController : Controller
 {
     // Database context for accessing the movie records
@@ -17,38 +15,35 @@ public class HomeController : Controller
     {
         _context = temp;
     }
-
-    /// <summary>
-    /// Displays the home page with Joel's headshot and introduction.
-    /// </summary>
+    
+    // Displays the home page with Joel's headshot and introduction.
     public IActionResult Index()
     {
         return View();
     }
-
-    /// <summary>
-    /// Displays the "Get To Know Joel" page with links to his comedy and podcast.
-    /// </summary>
+    
+    // Displays the "Get To Know Joel" page with links to his comedy and podcast.
     public IActionResult GetToKnowJoel()
     {
         return View();
     }
-
-    /// <summary>
-    /// GET action: Displays the movie database form for entering a new movie record.
-    /// </summary>
+    
+    // GET action: Displays the movie database form for entering a new movie record.
     [HttpGet]
     public IActionResult MovieDatabase()
     {
-        return View();
+        ViewBag.Categories = _context.Categories
+            .OrderBy(x => x.CategoryName)
+            .ToList();
+        
+        return View(new Record());
     }
 
-    /// <summary>
-    /// POST action: Handles form submission when a new movie record is submitted.
-    /// Validates the data and saves it to the database if valid.
-    /// </summary>
-    /// <param name="response">The movie record data from the form</param>
-    /// <returns>Confirmation view if successful, or the form view with errors if validation fails</returns>
+
+    // POST action: Handles form submission when a new movie record is submitted.
+    // Validates the data and saves it to the database if valid.
+    // <param name="response">The movie record data from the form</param>
+    // <returns>Confirmation view if successful, or the form view with errors if validation fails</returns>
     [HttpPost]
     public IActionResult MovieDatabase(Record response)
     {
