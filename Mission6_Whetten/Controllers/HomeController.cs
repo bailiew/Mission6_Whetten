@@ -77,7 +77,7 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult Edit(Movie updatedInfo)
+    public IActionResult Edit(Movie updatedInfo) // passes in the updated record information
     {
         _context.Update(updatedInfo);
         _context.SaveChanges();
