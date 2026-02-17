@@ -1,14 +1,14 @@
 @model Mission6_Whetten.Models.Movie
 @{
     // Set the page title that appears in the browser tab
-    ViewData["Title"] = "Movie Database";
+    ViewData["Title"] = "Add a Movie Record";
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>Add a movie to Joel's extensive movie database.</p>
 
 <!-- Form to submit a new movie record to the database -->
-<form method="post" asp-action="MovieDatabase" asp-controller="Home">
+<form method="post" asp-action="AddRecord" asp-controller="Home">
     
     <!-- connection movie record with id -->
     <input type="hidden" asp-for="MovieId"/>

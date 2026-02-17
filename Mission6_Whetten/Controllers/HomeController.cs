@@ -30,10 +30,10 @@ public class HomeController : Controller
     
     // GET action: Displays the movie database form for entering a new movie record.
     [HttpGet]
-    public IActionResult MovieDatabase()
+    public IActionResult AddRecord()
     {
         ViewBag.Categories = _context.Categories
-            .OrderBy(x => x.CategoryName)
+            .OrderBy(c => c.CategoryName)
             .ToList();
         
         return View(new Movie());
@@ -45,7 +45,7 @@ public class HomeController : Controller
     // <param name="response">The movie record data from the form</param>
     // <returns>Confirmation view if successful, or the form view with errors if validation fails</returns>
     [HttpPost]
-    public IActionResult MovieDatabase(Movie response)
+    public IActionResult AddRecord(Movie response)
     {
         // Check if all required fields are valid
         if (ModelState.IsValid)
@@ -56,6 +56,12 @@ public class HomeController : Controller
             _context.SaveChanges();
             // Display the confirmation page with the submitted record data
             return View("Confirmation", response);
+        }
+        else
+        {
+            ViewBag.Categories = _context.Categories
+                .OrderBy(c => c.CategoryName)
+                .ToList();
         }
         // If validation failed, return the form view with error messages
         return View(response);
@@ -68,6 +74,35 @@ public class HomeController : Controller
             .OrderBy(r => r.MovieId).ToList();
         
         return View(records);
+    }
+
+    [HttpGet]
+    public IActionResult Edit(Movie updatedInfo)
+    {
+        _context.Update(updatedInfo);
+        _context.SaveChanges();
+
+        return RedirectToAction("MovieList"); // redirects to the MovieList Action
+    }
+
+    [HttpGet]
+
+    public IActionResult Delete(int id) // takes in specified movie record id and passes it to delete confirmation view
+    {
+        var recordToDelete = _context.Movies
+            .Single(m => m.MovieId == id);
+
+        return View(recordToDelete);
+    }
+
+    [HttpPost]
+
+    public IActionResult Delete(Movie recordToDelete) // takes in specified movie record id, matches and deletes the record 
+    {
+        _context.Movies.Remove(recordToDelete);
+        _context.SaveChanges();
+
+        return RedirectToAction("MovieList"); // returns user to main database viewing page
     }
 
 }
