@@ -36,7 +36,7 @@ public class HomeController : Controller
             .OrderBy(x => x.CategoryName)
             .ToList();
         
-        return View(new Record());
+        return View(new Movie());
     }
 
 
@@ -45,13 +45,13 @@ public class HomeController : Controller
     // <param name="response">The movie record data from the form</param>
     // <returns>Confirmation view if successful, or the form view with errors if validation fails</returns>
     [HttpPost]
-    public IActionResult MovieDatabase(Record response)
+    public IActionResult MovieDatabase(Movie response)
     {
         // Check if all required fields are valid
         if (ModelState.IsValid)
         {
             // Add the new record to the database context
-            _context.Records.Add(response);
+            _context.Movies.Add(response);
             // Save changes to the database
             _context.SaveChanges();
             // Display the confirmation page with the submitted record data
@@ -59,6 +59,15 @@ public class HomeController : Controller
         }
         // If validation failed, return the form view with error messages
         return View(response);
+    }
+
+    [HttpGet]
+    public IActionResult MovieList()
+    {
+        var records = _context.Movies
+            .OrderBy(r => r.MovieId).ToList();
+        
+        return View(records);
     }
 
 }

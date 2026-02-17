@@ -2,10 +2,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Mission6_Whetten.Models;
 
-/// <summary>
-/// Database context for the movie collection application.
-/// Manages the connection to the SQLite database and provides access to the Records table.
-/// </summary>
+// Database context for the movie collection application.
+// Manages the connection to the SQLite database and provides access to the Movies table.
 public class MovieRecordContext : DbContext
 {
     // Constructor that accepts database configuration options
@@ -14,8 +12,8 @@ public class MovieRecordContext : DbContext
         
     }
     
-    // DbSet representing the Records table in the database
-    // This allows us to query and save Record objects
-    public DbSet<Record> Records { get; set; }
+    // DbSet representing the Movies table in the database
+    // This allows us to query and save Movies objects
+    public DbSet<Movie> Movies { get; set; }
     public DbSet<Category> Categories { get; set; }
 }

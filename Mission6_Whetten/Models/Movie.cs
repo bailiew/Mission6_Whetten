@@ -3,19 +3,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission6_Whetten.Models;
 
-/// <summary>
-/// Model representing a movie record in Joel's film collection database.
-/// Contains all information about a movie including category, title, director, rating, etc.
-/// </summary>
-public class Record
+// Model representing a movie record in Joel's film collection database.
+// Contains all information about a movie including category, title, director, rating, etc.
+
+public class Movie
 {
     // Primary key - unique identifier for each movie record
     [Key]
     public int MovieId { get; set; }
     
-    // Required field: The category/genre of the movie
+    // foreign key: The category/genre of the movie
     [ForeignKey("CategoryId")]
-    public string CategoryId { get; set; }
+    public int CategoryId { get; set; }
     
     // Required field: The title of the movie
     [Required]

@@ -1,4 +1,4 @@
-@model Mission6_Whetten.Models.Record
+@model Mission6_Whetten.Models.Movie
 @{
     // Set the page title that appears in the browser tab
     ViewData["Title"] = "Movie Database";
@@ -9,6 +9,10 @@
 
 <!-- Form to submit a new movie record to the database -->
 <form method="post" asp-action="MovieDatabase" asp-controller="Home">
+    
+    <!-- connection movie record with id -->
+    <input type="hidden" asp-for="MovieId"/>
+    
     <!-- Optional field: Movie category -->
     <select asp-for="CategoryId">
         <option value="">Select a Category</option>
@@ -17,23 +21,23 @@
             <option value="@c.CategoryId">@c.CategoryName</option>
         }
     </select>
-    <br /><br/>
-    
+    <br/><br/>
+
     <!-- Required field: Movie title -->
     <label asp-for="Title">Title:</label>
     <input asp-for="Title" required/>
-    <br /><br/>
-    
+    <br/><br/>
+
     <!-- Required field: Release year -->
     <label asp-for="Year">Year:</label>
     <input asp-for="Year" required/>
-    <br /><br/>
-    
+    <br/><br/>
+
     <!-- Optional field: Director name -->
     <label asp-for="Director">Director:</label>
     <input asp-for="Director"/>
-    <br /><br/>
-    
+    <br/><br/>
+
     <!-- Optional field: Rating dropdown with MPAA ratings -->
     <label asp-for="Rating">Rating:</label>
     <select asp-for="Rating">
@@ -42,29 +46,29 @@
         <option value="PG-13">PG-13</option>
         <option value="R">R</option>
     </select>
-    <br /><br/>
-    
+    <br/><br/>
+
     <!-- Required field: Whether the movie has been edited -->
     <label asp-for="Edited">Edited:</label>
     <select asp-for="Edited" required>
         <option value="true">Yes</option>
         <option value="false">No</option>
     </select>
-    <br /><br/>
-    
+    <br/><br/>
+
     <!-- Optional field: Person the movie was lent to -->
     <label asp-for="LentTo">Lent To:</label>
-    <input asp-for="LentTo" />
-    <br /><br/>
-    
+    <input asp-for="LentTo"/>
+    <br/><br/>
+
     <!-- Required field: Whether the movie was copied to Plex -->
     <label asp-for="CopiedToPlex">Copied to Plex:</label>
     <select asp-for="CopiedToPlex" required>
         <option value="true">Yes</option>
         <option value="false">No</option>
     </select>
-    <br /><br/>
-    
+    <br/><br/>
+
     <!-- Required field: Whether the movie was edited -->
     <label asp-for="Edited">Edited:</label>
     <select asp-for="Edited" required>
@@ -72,12 +76,15 @@
         <option value="false">No</option>
     </select>
     <br/><br/>
-    
+
     <!-- Optional field: Notes (limited to 25 characters) -->
     <label asp-for="Notes">Notes:</label>
     <textarea asp-for="Notes" maxlength="25" rows="4"></textarea>
-    <br /><br/>
-    
+    <br/><br/>
+
     <!-- Submit button to save the movie record -->
     <button type="submit">Submit Movie Record</button>
+
+    <!-- Field Validation -->
+    <div asp-validation-summary="All"></div>
 </form>
