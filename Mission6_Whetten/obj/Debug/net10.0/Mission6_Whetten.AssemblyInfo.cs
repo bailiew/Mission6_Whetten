@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission6_Whetten")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f398ac476b4373954e6130dee6a416d4010eee8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f1ee6f3172f75a3a64ad2deaf229b5470351d428")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission6_Whetten")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission6_Whetten")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
