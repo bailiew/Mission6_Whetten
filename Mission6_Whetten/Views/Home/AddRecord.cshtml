@@ -31,7 +31,7 @@
 
     <!-- Required field: Release year -->
     <label asp-for="Year">Year:</label>
-    <input asp-for="Year" required min="1888" max="@DateTime.Now.Year" onfocus="if(this.value==0) this.value=''" onkeydown="if(this.value==0) this.value=''"/>
+    <input asp-for="Year" required min="1888" max="@DateTime.Now.Year" onfocus="if(this.value=='0') this.value=''" onkeydown="if(this.value=='0') this.value=''"/>
     <span asp-validation-for="Year" class="text-danger"></span>
     <br/><br/>
 
