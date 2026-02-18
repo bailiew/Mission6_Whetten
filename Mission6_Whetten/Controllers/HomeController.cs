@@ -77,12 +77,38 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult Edit(Movie updatedInfo) // passes in the updated record information
+    public IActionResult Edit(int id) // passes in the record id
     {
-        _context.Update(updatedInfo);
-        _context.SaveChanges();
+        var recordToEdit = _context.Movies
+            .Single(m => m.MovieId == id);
 
-        return RedirectToAction("MovieList"); // redirects to the MovieList Action
+        ViewBag.Categories = _context.Categories
+            .OrderBy(c => c.CategoryName)
+            .ToList();
+
+        return View("AddRecord", recordToEdit); // this will load up the add view with the record edit information
+    }
+
+    [HttpPost]
+
+    public IActionResult Edit(Movie updatedInfo)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Update(updatedInfo);
+            _context.SaveChanges();
+
+            return RedirectToAction("MovieList"); // this will load up data and pass it in corrected 
+        }
+        else //if input is not validated, reload form with previous information
+        {
+            ViewBag.Categories = _context.Categories
+                .OrderBy(c => c.CategoryName)
+                .ToList();
+
+            return View("AddRecord", updatedInfo);
+        }
+        
     }
 
     [HttpGet]
