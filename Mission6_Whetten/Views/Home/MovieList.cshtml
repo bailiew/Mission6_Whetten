@@ -1,6 +1,6 @@
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Current Movie Database";
 }
 
 @model List<Movie>
@@ -27,9 +27,9 @@
             <td>@r.Year</td>
             <td>@r.Director</td>
             <td>@r.Rating</td>
-            <td>@r.Edited</td>
+            <td>@(r.Edited ? "Yes" : "No")</td>
             <td>@r.LentTo</td>
-            <td>@r.CopiedToPlex</td>
+            <td>@(r.CopiedToPlex ? "Yes" : "No")</td>
             <td>@r.Notes</td>
             
             <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@r.MovieId">Edit</a></td>

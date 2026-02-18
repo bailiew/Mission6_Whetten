@@ -211,4 +211,4 @@
 /Users/bailiewhetten/RiderProjects/Mission6Assignment/Mission6_Whetten/bin/Debug/net10.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/bailiewhetten/RiderProjects/Mission6Assignment/Mission6_Whetten/obj/Debug/net10.0/Mission6.F28438F5.Up2Date
 /Users/bailiewhetten/RiderProjects/Mission6Assignment/Mission6_Whetten/obj/Debug/net10.0/Mission6_Whetten.sourcelink.json
-/Users/bailiewhetten/RiderProjects/Mission6Assignment/Mission6_Whetten/obj/Debug/net10.0/compressed/6pgqj0lpdr-{0}-adfticwsag-adfticwsag.gz
+/Users/bailiewhetten/RiderProjects/Mission6Assignment/Mission6_Whetten/obj/Debug/net10.0/compressed/6pgqj0lpdr-{0}-v4lwgnu2w5-v4lwgnu2w5.gz
