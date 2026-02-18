@@ -538,3 +538,34 @@ h2 + h4 {
         width: 100%;
     }
 }
+
+/* ============================================
+   Validation Error Messages
+   ============================================ */
+
+.field-validation-error,
+span[data-valmsg-for] {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.validation-summary-errors {
+    background-color: #f8d7da;
+    border: 2px solid var(--accent-color);
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    color: var(--accent-color);
+}
+
+.validation-summary-errors ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}

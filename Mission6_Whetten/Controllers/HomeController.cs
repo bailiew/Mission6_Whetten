@@ -42,8 +42,6 @@ public class HomeController : Controller
 
     // POST action: Handles form submission when a new movie record is submitted.
     // Validates the data and saves it to the database if valid.
-    // <param name="response">The movie record data from the form</param>
-    // <returns>Confirmation view if successful, or the form view with errors if validation fails</returns>
     [HttpPost]
     public IActionResult AddRecord(Movie response)
     {
@@ -73,7 +71,7 @@ public class HomeController : Controller
         var records = _context.Movies
             .OrderBy(r => r.MovieId).ToList();
         
-        return View(records);
+        return View(records); // load current movies in database and pass to MovieList view
     }
 
     [HttpGet]

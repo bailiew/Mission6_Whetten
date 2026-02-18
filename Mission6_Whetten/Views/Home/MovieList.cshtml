@@ -32,7 +32,7 @@
             <td>@(r.CopiedToPlex ? "Yes" : "No")</td>
             <td>@r.Notes</td>
             
-            <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@r.MovieId">Edit</a></td>
+            <td><a class="btn btn-secondary" asp-controller="Home" asp-action="Edit" asp-route-id="@r.MovieId">Edit</a></td>
             <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@r.MovieId">Delete</a></td>
         </tr>
         </tbody>

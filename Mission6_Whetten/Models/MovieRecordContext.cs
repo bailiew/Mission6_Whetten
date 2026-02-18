@@ -15,5 +15,7 @@ public class MovieRecordContext : DbContext
     // DbSet representing the Movies table in the database
     // This allows us to query and save Movies objects
     public DbSet<Movie> Movies { get; set; }
+    // DbSet representing the Categories table in the database
+    // This allows us to query and save Categories objects
     public DbSet<Category> Categories { get; set; }
 }

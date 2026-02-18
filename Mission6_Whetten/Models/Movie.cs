@@ -45,4 +45,18 @@ public class Movie
     // Optional field: Additional notes about the movie (limited to 25 characters)
     [MaxLength(25, ErrorMessage="Your note must be 25 or less characters")]
     public string? Notes { get; set; }
+    
+    //Custom validation for year to ensure that user does not enter a year greater than the current year
+    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    {
+        var currentYear = DateTime.Now.Year;
+
+        if (Year > currentYear)
+        {
+            yield return new ValidationResult(
+                $"Please enter a year that is {currentYear} or earlier.",
+                new[] { nameof(Year) }
+            );
+        }
+    }
 }

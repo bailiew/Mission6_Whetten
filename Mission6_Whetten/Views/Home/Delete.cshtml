@@ -1,4 +1,3 @@
-
 @{
     ViewData["Title"] = "Delete Record";
 }
@@ -6,8 +5,38 @@
 @model Movie
 
 <h2>Confirm Deletion</h2>
-<br/><br/>
-<h4>@Model.Title, @Model.Year</h4>
+<p>This action cannot be undone.</p>
+
+<!-- display all current information regarding the selected movie -->
+
+<table class="table table-bordered">
+    <thead class="fw-bold">
+    <tr>
+        <td>Movie Title</td>
+        <td>Release Year</td>
+        <td>Director</td>
+        <td>Movie Rating</td>
+        <td>Edited?</td>
+        <td>Lent To</td>
+        <td>Copied to Plex?</td>
+        <td>Notes</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>@Model.Title</td>
+        <td>@Model.Year</td>
+        <td>@Model.Director</td>
+        <td>@Model.Rating</td>
+        <td>@(Model.Edited ? "Yes" : "No")</td>
+        <td>@Model.LentTo</td>
+        <td>@(Model.CopiedToPlex ? "Yes" : "No")</td>
+        <td>@Model.Notes</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- cancel button -->
 <form method="post">
     <input type="hidden" asp-for="MovieId"></input>
     <button type="submit">Delete</button>
